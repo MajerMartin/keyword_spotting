@@ -1,0 +1,11 @@
+.idea/*
+data/distance_matrices/*
+data/features/*
+data/original/*
+data/params/*
+data/segmented_exclude/*
+data/reference.txt
+doc/*
+results/*
+scripts/.ipynb_checkpoints/*
+svn/*
