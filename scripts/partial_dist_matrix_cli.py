@@ -66,7 +66,7 @@ for file in args.input_files:
         speaker_test_keys = test_keys_all[speaker]
 
         for ref in speaker_ref_keys:
-            for test in speaker_test_keys:
+            for test in speaker_test_keys + speaker_ref_keys:
                 ref_data = data[features_type][ref]
                 test_data = data[features_type][test]
                 cost_matrix[ref, test] = dtw.get_cost(ref_data, test_data, dist_func)[0]
