@@ -234,7 +234,7 @@ def compute_accuracy(ref_keys, recognition, references):
 
 def recognize(test_keys, ref_keys, distance_matrix):
     """
-
+    Recognize test data.
     :param test_keys: list with test keys
     :param ref_keys: list with reference keys
     :param distance_matrix: dictionary with distances

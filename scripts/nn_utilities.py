@@ -223,7 +223,44 @@ def train(num_epochs, batch_size, X_train, y_train, X_val, y_val, input_dim, out
     return network
 
 
-def compute_accuracy(X_test, y_test, network):
+def recognize(X_test, network):
+    """
+    Recognize test data.
+    :param X_test: numpy array with test data
+    :param network: lasagne network
+    :return: list with recognized data
+    """
+    recognition = []
+
+    for row in xrange(len(X_test)):
+        prob = np.array(lasagne.layers.get_output(network, X_test[row], deterministic=True).eval())
+        recognition.append(np.argmax(prob))
+
+    return recognition
+
+
+def compute_accuracy(y_test, recognition):
+    """
+    Compute recognition accuracy.
+    :param y_test: numpy array with test targets
+    :param recognition: list with recognized data
+    :return: accuracy
+    """
+    correct = 0
+    wrong = 0
+
+    for i in xrange(len(y_test)):
+        if recognition[i] == np.argmax(y_test[i]):
+            correct += 1
+        else:
+            wrong += 1
+
+    accuracy = 100.0 * correct / float(correct + wrong)
+
+    return accuracy
+
+
+def recognize_and_compute_accuracy(X_test, y_test, network):
     """
     Compute recognition accuracy.
     :param X_test: numpy array with test data
