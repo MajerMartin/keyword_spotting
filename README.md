@@ -2,8 +2,8 @@
 
 Keyword spotting using multiple methods:
 
-* Support vector machine with Dynamic time warping
-* Feed-forward neural network with Dynamic time warping
+* Support vector machine with dynamic time warping
+* Feed-forward neural network with dynamic time warping
 * Feed-forward neural network with bottleneck layer
 
 Tested on log filterbank energies and MFCC both with and without delta/delta-delta coefficients.
